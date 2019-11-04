@@ -7,7 +7,7 @@ const swaggerDocument = require('./helper/swagger.json');
 require('./helper/dbCon')
 //Headers
 app.use((req, res, next)=>{
-    res.header('Access-Control-Allow-Origin', '*'); // proda çıkarken burada sadece sitemizin domaini yer alacak. 
+    res.header('Access-Control-Allow-Origin', 'http://examplemusicapi.herokuapp.com/'); // proda çıkarken burada sadece sitemizin domaini yer alacak. 
     res.header(
         'Access-Control-Allow-Headers', 
         'Origin, X-Requested-Wdith, Content-Type, Accept, Authorization'
