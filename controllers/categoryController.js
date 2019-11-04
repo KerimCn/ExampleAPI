@@ -23,13 +23,13 @@ exports.getAll = function(req, res){
 }
 
 exports.getOne = function(req, res){
-    const name = req.params.name
-    categorySchema.find({catName:name}).then(data=>{
+    const categoryId = req.params.categoryId
+    categorySchema.find({_id:categoryId}).then(data=>{
         console.log(data)
         res.status(200).json({
             err:false,
             data:data,
-            msg:name+' isimli Kategori',
+            msg:'İlgili Kategori',
             status:200
         })
     }).catch(err=>{

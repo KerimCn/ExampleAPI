@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-require('./helper/dbCon')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./helper/swagger.json');
 
+require('./helper/dbCon')
 //Headers
 app.use((req, res, next)=>{
     res.header('Access-Control-Allow-Origin', '*'); // proda çıkarken burada sadece sitemizin domaini yer alacak. 
@@ -38,6 +40,8 @@ app.use('/tracks',tracksRoute);
 app.use('/albums',albumsRoute);
 app.use('/artist',artistRoute);
 
+//Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 // error handler

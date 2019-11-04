@@ -1,0 +1,591 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Bu API bir challenge için yapılmıştır. Gerekli Testler aşağıdan yapılabilir.",
+    "version": "1.0.0",
+    "title": "Music API"
+  },
+  "tags": [
+    {
+      "name": "albums",
+      "description": "Everything about artist"
+    },
+    {
+      "name": "artist",
+      "description": "Everything about artist"
+    },
+    {
+      "name": "categories",
+      "description": "Everything about music categories"
+    },
+    {
+      "name": "tracks",
+      "description": "Everything about tracks"
+    },
+    {
+      "name": "user",
+      "description": "Operations about user",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/albums": {
+      "get": {
+        "tags": [
+          "albums"
+        ],
+        "summary": "Get all Categories",
+        "description": "",
+        "operationId": "/",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "404": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/albums/byartist/{artistId}": {
+      "get": {
+        "tags": [
+          "albums"
+        ],
+        "summary": "Sanatçı ID'sine göre albümleri listeler.",
+        "description": "Sanatçıların id'sine göre albümlerini listeler.",
+        "operationId": "byartist",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "artistId",
+            "in": "formData",
+            "description": "ÖRN Sanatçı ID= 5dbd5e3d61fd704a49e6e7cf (Ceza)",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sanatçının albümleri başarıyla getirildi."
+          },
+          "404": {
+            "description": "Sanatçının albümleri getirilemedi."
+          }
+        }
+      }
+    },
+    "/artist": {
+      "get": {
+        "tags": [
+          "artist"
+        ],
+        "summary": "Get all artists",
+        "description": "Get all about artists",
+        "operationId": "getPetById",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/artist/id/{artistId}": {
+      "get": {
+        "tags": [
+          "artist"
+        ],
+        "summary": "Get artist by ID",
+        "description": "",
+        "operationId": "id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "artistId",
+            "in": "path",
+            "description": "ID of get to artist"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/artist/similarartist/{artistId}": {
+      "get": {
+        "tags": [
+          "artist"
+        ],
+        "summary": "Get similar artists musics",
+        "description": "",
+        "operationId": "similarartist",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "artistId",
+            "in": "path",
+            "description": "ID of get to similar artists "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/artist/add": {
+      "post": {
+        "tags": [
+          "artist"
+        ],
+        "summary": "Add Artist",
+        "description": "",
+        "operationId": "add",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Artist object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/artist"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/artist/update/{artistId}": {
+      "patch": {
+        "tags": [
+          "artist"
+        ],
+        "summary": "Update Artist",
+        "description": "",
+        "operationId": "update",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "artistId",
+            "in": "path",
+            "description": "ID of update to similar artists "
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Artist object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/artist"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/category": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Get All of the albums",
+        "description": "Get All of the albums",
+        "operationId": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/category/type/{categoryId}": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Get All of the albums",
+        "description": "Get All of the albums",
+        "operationId": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/category/add": {
+      "post": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Add the category",
+        "description": "Add the category",
+        "operationId": "",
+        "parameters":[
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Album object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/category/update/{id}": {
+      "patch": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "Update for the category",
+        "description": "Update for the category",
+        "operationId": "",
+        "parameters":[
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of update to category "
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Album object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks": {
+      "get": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Get All about the tracks",
+        "description": "Get All Tracks",
+        "operationId": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks/id/{trackId}": {
+      "get": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Get the track by id",
+        "description": "Get the track by id",
+        "operationId": "id",
+        "parameters": [
+          {
+            "name": "trackId",
+            "in": "path",
+            "description": "ID of get to track "
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks/byartist/{artistId}": {
+      "get": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Get the tracks by artistId",
+        "description": "Get the tracks by artistId",
+        "operationId": "byartist",
+        "parameters": [
+          {
+            "name": "artistId",
+            "in": "path",
+            "description": "ID of get to track "
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks/topbyartist/{artistId}": {
+      "get": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Get the top tracks by artistId",
+        "description": "Get the top tracks by artistId",
+        "operationId": "topbyartist",
+        "parameters": [
+          {
+            "name": "artistId",
+            "in": "path",
+            "description": "ID of get to top tracks  "
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks/topbyalbums/{albumId}": {
+      "get": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Get the album in top tracks by artistId",
+        "description": "Get the album in top tracks by artistId",
+        "operationId": "topbyalbum",
+        "parameters": [
+          {
+            "name": "albumId",
+            "in": "path",
+            "description": "Get the album in top tracks by artistId"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks/add": {
+      "post": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Add the track",
+        "description": "Add the track",
+        "operationId": "",
+        "parameters":[
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Album object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Tracks"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/tracks/update/{trackId}": {
+      "patch": {
+        "tags": [
+          "tracks"
+        ],
+        "summary": "Update for the track",
+        "description": "Update for the track",
+        "operationId": "",
+        "parameters":[
+          {
+            "name": "trackId",
+            "in": "path",
+            "description": "ID of update to track "
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Album object that needs to be added",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TracksUpd"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },"definitions": {
+    "artist": {
+      "type": "object",
+      "properties": {
+        "artistName": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+       
+        "name": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "Category"
+      }
+    },
+    "Tracks": {
+      "type": "object",
+      "properties": {
+        "trackName": {
+          "type": "string"
+        },
+        "albumId": {
+          "type": "string"
+        },
+        "artistId": {
+          "type": "string"
+        },
+        "songTime": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "TracksUpd": {
+      "type": "object",
+      "properties": {
+        "trackName": {
+          "type": "string"
+        },
+        "albumId": {
+          "type": "string"
+        },
+        "artistId": {
+          "type": "string"
+        },
+        "songTime": {
+          "type": "string"
+        },
+        "listenCount": {
+          "type": "integer"
+        },
+        "likeCount": {
+          "type": "integer"
+        },
+        "downloadCount": {
+          "type": "integer"
+        },
+        "shareCount": {
+          "type": "integer"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    }
+  }
+}

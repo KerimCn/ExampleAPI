@@ -102,11 +102,12 @@ exports.insertArtist = function(req, res){
 }
 
 exports.updateArtist = function(req, res){
+    const artistId = req.params.artistId
     const artistName = req.body.artistName
     const birthDate = req.body.birthDate
     const categoryId = req.body.categoryId
-    artistSchema.update({_id:id},{artistName:artistName,birthDate:birthDate,categoryId:categoryId}).then(data=>{
-
+    artistSchema.updateOne({_id:artistId},{artistName:artistName,birthDate:birthDate,categoryId:categoryId}).then(data=>{
+        console.log(data)
         if(data.ok > 0){
             res.status(200).json({
                 err:false,

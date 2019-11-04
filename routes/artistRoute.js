@@ -6,7 +6,7 @@ router.get('/',artistController.getAll);
 router.get('/id/:id',artistController.getOne);
 router.get('/similarartist/:artistId',artistController.similarArtist);
 router.post('/add',artistController.insertArtist);
-router.patch('/update/:id',artistController.updateArtist);
+router.patch('/update/:artistId',artistController.updateArtist);
 
 
 
