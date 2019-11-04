@@ -30,6 +30,7 @@ const userRoute = require('./routes/userRoute');
 const tracksRoute = require('./routes/tracksRoute');
 const albumsRoute = require('./routes/albumsRoute');
 const artistRoute = require('./routes/artistRoute');
+const indexRoute = require('./routes/indexRoute');
 
 
 
@@ -39,6 +40,10 @@ app.use('/user',userRoute);
 app.use('/tracks',tracksRoute);
 app.use('/albums',albumsRoute);
 app.use('/artist',artistRoute);
+app.use('/',indexRoute);
+
+app.use('/',express.static('public'));
+
 
 //Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
