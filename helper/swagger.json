@@ -8,7 +8,7 @@
   "tags": [
     {
       "name": "albums",
-      "description": "Everything about artist"
+      "description": "Everything about albums"
     },
     {
       "name": "artist",
@@ -92,7 +92,7 @@
         ],
         "summary": "Get all artists",
         "description": "Get all about artists",
-        "operationId": "getPetById",
+        "operationId": "",
         "produces": [
           "application/json"
         ],
@@ -100,11 +100,8 @@
           "200": {
             "description": "successful operation"
           },
-          "400": {
-            "description": "Invalid ID supplied"
-          },
           "404": {
-            "description": "Pet not found"
+            "description": "Invalid ID supplied"
           }
         },
         "security": [
