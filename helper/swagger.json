@@ -21,14 +21,6 @@
     {
       "name": "tracks",
       "description": "Everything about tracks"
-    },
-    {
-      "name": "user",
-      "description": "Operations about user",
-      "externalDocs": {
-        "description": "Find out more about our store",
-        "url": "http://swagger.io"
-      }
     }
   ],
   "schemes": [
