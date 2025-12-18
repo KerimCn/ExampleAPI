@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://kerimcn:Kerimcan123.@cluster0-swtwc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology:true ,useCreateIndex:true})
+mongoose.connect('mongodb+srv://username:pwd@cluster0-swtwc.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology:true ,useCreateIndex:true})
 
 var db=mongoose.connection;
 
